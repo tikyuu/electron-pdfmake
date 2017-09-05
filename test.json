@@ -1,0 +1,91 @@
+{
+    "user_table": {
+        "number": "1",
+        "name": "tikyuu",
+        "affilication": "プログラマー"
+    },
+    "record_tables": [
+        {
+            "day": "1",
+            "weekday": "火",
+            "holiday": "",
+            "start_time": "9:58",
+            "end_time": "19:06",
+            "work_time": "8:00",
+            "over_time": "",
+            "absence_or_late": "",
+            "remarks": "",
+            "stamp": ""
+        },
+        {
+            "day": "2",
+            "weekday": "水",
+            "holiday": "",
+            "start_time": "9:43",
+            "end_time": "19:06",
+            "work_time": "8:00",
+            "over_time": "",
+            "absence_or_late": "",
+            "remarks": "",
+            "stamp": ""
+        },
+        {
+            "day": "3",
+            "weekday": "木",
+            "holiday": "",
+            "start_time": "9:52",
+            "end_time": "19:06",
+            "work_time": "8:00",
+            "over_time": "",
+            "absence_or_late": "",
+            "remarks": "",
+            "stamp": ""
+        },
+        {
+            "day": "4",
+            "weekday": "金",
+            "holiday": "",
+            "start_time": "9:54",
+            "end_time": "18:25",
+            "work_time": "7:25",
+            "over_time": "",
+            "absence_or_late": "有",
+            "remarks": "暑気払い",
+            "stamp": ""
+        },
+        {
+            "day": "5",
+            "weekday": "土",
+            "holiday": "休1",
+            "start_time": "",
+            "end_time": "",
+            "work_time": "",
+            "over_time": "",
+            "absence_or_late": "",
+            "remarks": "",
+            "stamp": ""
+        },
+        {
+            "day": "6",
+            "weekday": "日",
+            "holiday": "休1",
+            "start_time": "",
+            "end_time": "",
+            "work_time": "",
+            "over_time": "",
+            "absence_or_late": "",
+            "remarks": "",
+            "stamp": ""
+        }
+    ],
+    "total_table": {
+        "attendance": "0.00",
+        "absence": "0",
+        "vacation": "0.00",
+        "extension_time": "0",
+        "over_time": "0",
+        "late_time": "0",
+        "work_time": "0",
+        "remarks": ""
+    }
+}
