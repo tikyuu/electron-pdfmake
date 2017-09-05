@@ -1,9 +1,4 @@
 
-<style>
-.box {
-  padding: 8px 16px;
-}
-</style>
 
 # electronで出勤簿用のpdf作ってみた。
 
@@ -27,25 +22,17 @@ $ npm run release
 
 
 ## 出会った問題点
-<div class="box">
 日付取得用のモジュールを使ったらなんかエラーが出た。<br>
 electronと相性が悪いのかも。他のモジュールでもそういうのありそう。<br>
 `npm i -D date-utils ✖`
-</div>
 
-<div class="box">
   TypeScriptで書くと定義ファイル作るのがめんどい。のでes6で書く。
-</div>
 
-<div class="box">
   pdfmakeなんか書くのめんどい。
-</div>
 
-<div class="box">
   ファイル名が長すぎて削除できないとか言われたら、<br>
   `npm dedupe`<br>
   を一旦やってみる。
-</div>
 
 
 
