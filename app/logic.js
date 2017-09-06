@@ -100,7 +100,6 @@ class Model {
     this.model.content.push(this._create_table_total(json));
     this.model.content.push(this._create_table_stamp(json));
 
-    debugger;
     let pdf = pdfMake.createPdf(this.model);
     let name = (json.user_table !== undefined) ? json.user_table.name : "null";
     name += ".pdf";
