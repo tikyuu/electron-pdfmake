@@ -17,16 +17,37 @@ const DateFormat = {
   }
 };
 const fs = require('fs');
+const path = require('path');
 const remote = require('electron').remote;
+
+// server side
+// const PdfPrinter = require('pdfmake');
 
 class Model {
   constructor() {
     this.model = null;
+    pdfMake.fonts = {
+      yumin: {
+        normal: 'YUMIN.TTF',
+        bold: 'YUMIN.TTF',
+        italics: 'YUMIN.TTF',
+        bolditalics: 'YUMIN.TTF',
+      }
+    };
+
+    // server side
+    // const fonts = {
+    //   yumin: {
+    //     normal:       'fonts/YUMIN.TTF',
+    //     bold:         'fonts/YUMIN.TTF',
+    //     italics:      'fonts/YUMIN.TTF',
+    //     bolditalics:  'fonts/YUMIN.TTF'
+    //   }
+    // };
+    // this.printer = new PdfPrinter(fonts);
   }
   _reset() {
-    // let today = new Date().toFormat("YYYY/MM/DD");
     let today = DateFormat.toString(new Date(), "yyyy/MM/dd");
-    // let today = ("YYYY/MM/DD");
     return {
       pageSize: 'A4',
       pageOrientation: 'portrait',
@@ -62,7 +83,7 @@ class Model {
         }
       },
       defaultStyle: {
-        font: 'msgothic',
+        font: 'yumin',
         alignment: 'center',
         fontSize: 9,
       },
@@ -79,11 +100,28 @@ class Model {
     this.model.content.push(this._create_table_total(json));
     this.model.content.push(this._create_table_stamp(json));
 
-    // pdfMake.createPdf(this.model).download();
+    debugger;
     let pdf = pdfMake.createPdf(this.model);
     let name = (json.user_table !== undefined) ? json.user_table.name : "null";
-    pdfMake.createPdf(this.model).download(`出勤簿 ${name}.pdf`);
-    log.innerHTML = "complete!";
+    name += ".pdf";
+    // pdfMake.createPdf(this.model).download(`出勤簿 ${name}`);
+
+    // https://github.com/bpampuch/pdfmake/issues/172
+    pdf.getBuffer((buffer) => {
+      // fs.writeFileSync(name, new Buffer(new Uint8Array(buffer)));
+      fs.writeFileSync(name, buffer);
+      log.innerHTML = `output: ${name}`;
+    });
+
+    // server side
+    // https://github.com/bpampuch/pdfmake/issues/19
+    // let doc = this.printer.createPdfKitDocument(this.model);
+    // let name = (json.user_table !== undefined) ? json.user_table.name : "null";
+    // name += ".pdf";
+    // doc.pipe(fs.createWriteStream(name));
+    // doc.end();
+    // let full_path = path.join(project_dir, name);
+    // log.innerHTML = `output ${full_path}`;
   }
   _read_json(path) {
     return JSON.parse(fs.readFileSync(path, 'utf8'));
@@ -256,7 +294,6 @@ class Model {
 class Controller {
   constructor() {
     this.model = new Model();
-    this._init_pdf_fonts();
   }
   run(json_path) {
     if (!this._is_exist_file(json_path)) {
@@ -288,20 +325,7 @@ class Controller {
       return false;
     }
   }
-
-  _init_pdf_fonts() {
-    pdfMake.fonts = {
-      msgothic: {
-        normal: 'YUMIN.TTF',
-        bold: 'YUMIN.TTF',
-        italics: 'YUMIN.TTF',
-        bolditalics: 'YUMIN.TTF',
-      }
-    };
-  }
 }
-
-
 
 let box = document.getElementById("box");
 let check_box = document.getElementById("check-button");

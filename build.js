@@ -14,6 +14,7 @@ packager({
   overwrite: true,
   asar: true, // パッケージ化
   prune: true,
+  icon: "./128x128.ico",
   "app-version": package["version"],
 }, (err, text) => {
   if (err) console.log(err);

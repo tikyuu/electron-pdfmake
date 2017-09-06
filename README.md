@@ -5,9 +5,6 @@
 ![](./doc/2.png)  
 ![](./doc/3.png)
 
-## 構成
-![](./doc/1.png)  
-
 ## 使い方
 インストール
 - git
@@ -27,7 +24,6 @@ $ npm start
 $ npm run release
 ```
 
-
 ## 出会った問題点
   日付取得用のモジュールを使ったらなんかエラーが出た。<br>
   electronと相性が悪いのかも。他のモジュールでもそういうのありそう。<br>
@@ -41,12 +37,15 @@ $ npm run release
   `npm dedupe`<br>
   を一旦やってみる。
 
+  最終的なファイル出力がごちゃごちゃしているので、1つのexeにまとめるために、<br>
+  [Enigma Virtual Box](http://qiita.com/takumi918/items/acf35685f5d68653c030)を使っている。が、設定がめんどくさい。<br>
+
 ## 参考
 [javascriptで日付フォーマッタ](http://qiita.com/egnr-in-6matroom/items/37e65bb642d2e158804c)  
 [Drag and Drop File Uploading](https://css-tricks.com/drag-and-drop-file-uploading/)  
 [BrowserWindow](https://xwartz.gitbooks.io/electron-gitbook/content/en/api/browser-window.html)  
 [Electron APP packaging](https://stackoverflow.com/questions/39063795/electron-app-packaging)  
 [pdfmkae playground](http://pdfmake.org/playground.html)  
-
+[Electron製のアプリ、ごちゃごちゃしたファイル群を一つのEXEにまとめる方法](http://qiita.com/takumi918/items/acf35685f5d68653c030)  
 
 
