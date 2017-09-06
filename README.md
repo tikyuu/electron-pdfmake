@@ -3,6 +3,7 @@
 # electronで出勤簿用のpdf作ってみた。
 
 ![](./doc/2.png)  
+![](./doc/3.png)
 
 ## 構成
 ![](./doc/1.png)  
